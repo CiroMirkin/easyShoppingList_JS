@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,78 @@
     <!-- Favicon -->
     <!-- <link rel="shortcut icon" href="" type="image/x-icon"> -->
 </head>
+
 <body>
+    <div class="container-sm">
+        <div class="w-100 d-flex justify-content-center">
+            <div class="btn-group m-3" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="option" id="balance" autocomplete="off"
+                    data-bs-toggle="collapse" data-bs-target="#balance" aria-expanded="false" aria-controls="addProduct">
+                <label class="btn btn-outline-success" for="balance">Establecer saldo</label>
     
+                <input type="radio" class="btn-check" name="option" id="addProduct" autocomplete="off"
+                    data-bs-toggle="collapse" data-bs-target="#addProduct" aria-expanded="false" aria-controls="addProduct">
+                <label class="btn btn-outline-success" for="addProduct">Añadir producto</label>
+    
+                <input type="radio" class="btn-check" name="option" id="metrics" autocomplete="off"
+                    data-bs-toggle="collapse" data-bs-target="#metrics" aria-expanded="false" aria-controls="metrics">
+                <label class="btn btn-outline-success" for="metrics">Metricas</label>
+            </div>
+        </div>
+        <div class="collapse" id="balance">
+            <div class="card card-body">
+                <div class="mb-3">
+                    <label for="balanceForm" class="form-label">Balance</label>
+                    <input type="text" class="form-control" id="balanceForm"
+                        placeholder="La cantidad de dinero del que dispone">
+                </div>
+            </div>
+        </div>
+        <div class="collapse" id="addProduct">
+            <div class="card card-body">
+                <form>
+                    <input class="form-control mb-1" type="text" placeholder="Nombre del producto"
+                        aria-label="product name">
+                    <input class="form-control mb-1" type="text" placeholder="Aclaracion sobre el producto"
+                        aria-label="product escription">
+                    <input type="submit" class="btn btn-success" value="Añadir">
+                </form>
+            </div>
+        </div>
+        <div class="collapse container" id="metrics">
+            <div class="container mb-2">
+                <ul class="list-group">
+                    <li
+                        class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                        Total de productos
+                        <span class="badge bg-success rounded-pill">20</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Productos que tiene
+                        <span class="badge bg-success rounded-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Productos que no tiene
+                        <span class="badge bg-success rounded-pill">1</span>
+                    </li>
+                </ul>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+                    Saldo disponible <span>20 ARG</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Dinero a pagar <span>2 ARG</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Dinero sobrante <span>1 ARG</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
