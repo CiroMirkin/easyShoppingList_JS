@@ -17,7 +17,7 @@
 <body>
     <div class="container-sm">
         <div class="w-100 d-flex justify-content-center">
-            <div class="btn-group m-3" role="group" aria-label="Basic radio toggle button group">
+            <div id="navbar" class="btn-group m-3" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="option" id="balance" autocomplete="off"
                     data-bs-toggle="collapse" data-bs-target="#balance" aria-expanded="false"
                     aria-controls="addProduct">
@@ -33,7 +33,7 @@
                 <label class="btn btn-outline-success" for="metrics">Metricas</label>
             </div>
         </div>
-        <div class="collapse" id="balance">
+        <div class="collapse navbar-collapse" id="balance">
             <div class="card card-body">
                 <div class="mb-3">
                     <label for="balanceForm" class="form-label">Balance</label>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="collapse" id="addProduct">
+        <div class="collapse navbar-collapse" id="addProduct">
             <div class="card card-body">
                 <form>
                     <input class="form-control mb-1" type="text" placeholder="Nombre del producto"
@@ -53,7 +53,7 @@
                 </form>
             </div>
         </div>
-        <div class="collapse container" id="metrics">
+        <div class="collapse navbar-collapse container" id="metrics">
             <div class="container mb-2">
                 <ul class="list-group">
                     <li
