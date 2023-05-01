@@ -1,3 +1,5 @@
+import Products from './products.js'
+import ShowProducts from './showProducts.js'
 
 const addProductForm = document.getElementById('addProductForm')
 addProductForm.addEventListener('submit', e => {
