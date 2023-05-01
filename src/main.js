@@ -15,6 +15,11 @@ addProductForm.addEventListener('submit', e => {
     }
     products.addProduct(newProduct)
     showProducts.showProductList(products.getProductListForShowIt())
+    clearTheFormValues()
+})
+const clearTheFormValues = () => {
+    const newProductNameInput = document.getElementById('newProductName') 
+    const newProductDescriptionInput = document.getElementById('newProductDescription')
     newProductNameInput.value = ''
     newProductDescriptionInput.value = ''
-})
+}
