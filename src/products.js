@@ -5,4 +5,7 @@ export default class Products {
     addProduct(newProduct) {
         this.products.push(newProduct)
     }
+    getProductListForShowIt() {
+        return [...this.products]
+    }
 }
