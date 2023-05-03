@@ -8,4 +8,14 @@ export default class Products {
     getProductListForShowIt() {
         return [...this.products]
     }
+    checkAProduct(productId, productPrice) {
+        this.products = this.products.map(product => {
+            if(product.id == productId) {
+                product.wasGetIt = true;
+                product.price = productPrice;
+                return product
+            }
+            return product
+        })
+    }
 }
