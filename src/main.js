@@ -16,7 +16,8 @@ addProductForm.addEventListener('submit', e => {
     const newProduct = {
         id: getNewProductID(),
         name: newProductNameInput.value,
-        description: newProductDescriptionInput.value
+        description: newProductDescriptionInput.value,
+        wasGetIt: false
     }
     products.addProduct(newProduct)
     showProducts.showProductList(products.getProductListForShowIt())
