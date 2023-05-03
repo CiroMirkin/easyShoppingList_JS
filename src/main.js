@@ -35,7 +35,7 @@ productListElement.addEventListener('click', e => {
     if(isTheCheckButton(e.target)) {
         const productId = getProductId(e)
         const productPrice = getProductPrice(productId)
-        
+        products.checkAProduct(productId, productPrice)
     }
 })
 const isTheCheckButton = (element) => {
