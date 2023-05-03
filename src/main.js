@@ -29,3 +29,21 @@ const clearTheFormValues = () => {
     newProductNameInput.value = ''
     newProductDescriptionInput.value = ''
 }
+
+const productListElement = document.getElementById('productList')
+productListElement.addEventListener('click', e => {
+    if(isTheCheckButton(e.target)) {
+        const productId = getProductId(e)
+        const productPrice = getProductPrice(productId)
+        
+    }
+})
+const isTheCheckButton = (element) => {
+    const icon = '<i class="bi bi-check-lg"></i>'
+    return (element.outerHTML).trim() == icon || (element.innerHTML).trim() == icon
+}
+const getProductId = (e) => e.target.offsetParent.offsetParent.parentElement.id
+const getProductPrice = (productId) => {
+    const productPriceInput = document.getElementById(`productPriceInput-${productId}`)
+    return Number(productPriceInput.value) || 0
+}

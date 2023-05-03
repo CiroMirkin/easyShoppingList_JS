@@ -12,9 +12,10 @@ export default class ShowProducts {
                         <li class="list-group-item">
                             <div class="d-grid gap-2">
                                 <div class="d-flex justify-content-center">
-                                    <input class="form-control form-control-sm" type="number">
-                                    <button type="button" class="btn btn-success btn-sm"><i
-                                            class="bi bi-check-lg"></i></button>
+                                    <input id="productPriceInput-${product.id}" class="form-control form-control-sm" type="number">
+                                    <button type="button" class="btn btn-success btn-sm">
+                                        <i class="bi bi-check-lg"></i>
+                                    </button>
                                 </div>
                                 <button type="button" class="btn btn-success" data-bs-toggle="collapse"
                                     data-bs-target="#car" aria-expanded="false" aria-controls="car"><i
