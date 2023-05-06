@@ -6,6 +6,9 @@ export default class BalanceManager {
             surplus: 0
         }
     }
+    getTheUserBalance(){
+        return {...this.userBalance}
+    }
     updateProductsBalance(productList) {
         let moneyToPay = 0
         productList.forEach(product => {

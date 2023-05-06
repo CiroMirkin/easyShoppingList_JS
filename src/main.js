@@ -1,5 +1,6 @@
 import BalanceManager from './balanceManager.js'
 import Products from './products.js'
+import ShowBalance from './showBalance.js'
 import ShowProducts from './showProducts.js'
 
 const products = new Products()
@@ -37,6 +38,7 @@ productListElement.addEventListener('click', e => {
         const productPrice = getProductPrice(productId)
         products.checkAProduct(productId, productPrice)
         updateBalance()
+        updateMoneyMetrics()
     }
 })
 const isTheCheckButton = (element) => {
@@ -55,4 +57,9 @@ const balanceManager = new BalanceManager()
 const updateBalance = () => {
     const productList = products.getProductForBalance()
     balanceManager.updateProductsBalance(productList)
+}
+const showBalance = new ShowBalance()
+const updateMoneyMetrics = () => {
+    const userBalance = balanceManager.getTheUserBalance()
+    showBalance.showMoneyMetrics(userBalance)
 }
