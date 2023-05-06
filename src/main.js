@@ -37,7 +37,7 @@ productListElement.addEventListener('click', e => {
         const productId = getProductId(e)
         const productPrice = getProductPrice(productId)
         products.checkAProduct(productId, productPrice)
-        updateBalance()
+        updateProductBalance()
         updateMoneyMetrics()
     }
 })
@@ -54,16 +54,10 @@ const getProductPrice = (productId) => {
     return parseFloat(productPriceInput.value)
 }
 const balanceManager = new BalanceManager()
-const updateBalance = () => {
+const updateProductBalance = () => {
     const productList = products.getProductForBalance()
     balanceManager.updateProductsBalance(productList)
 }
-const showBalance = new ShowBalance()
-const updateMoneyMetrics = () => {
-    const userBalance = balanceManager.getTheUserBalance()
-    showBalance.showMoneyMetrics(userBalance)
-}
-
 const balanceForm = document.getElementById('balanceForm')
 balanceForm.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -74,5 +68,11 @@ balanceForm.addEventListener('submit', (e) => {
     else {
         const balance = parseFloat(balanceInput.value)
         balanceManager.changeUserBalance(balance)
-    } 
+    }
+    updateMoneyMetrics()
 })
+const showBalance = new ShowBalance()
+const updateMoneyMetrics = () => {
+    const userBalance = balanceManager.getTheUserBalance()
+    showBalance.showMoneyMetrics(userBalance)
+}
