@@ -23,6 +23,7 @@ addProductForm.addEventListener('submit', e => {
     }
     products.addProduct(newProduct)
     showProducts.showProductList(products.getProductListForShowIt())
+    updateProductMetrics()
     clearTheFormValues()
 })
 const clearTheFormValues = () => {
@@ -31,6 +32,15 @@ const clearTheFormValues = () => {
     newProductNameInput.value = ''
     newProductDescriptionInput.value = ''
 }
+const metricsManager = new MetricsManager()
+const showBalance = new ShowBalance()
+const updateProductMetrics = () => {
+    const productList = products.getProductListForMetrics()
+    metricsManager.updateProductMetrics(productList)
+    const productMetrics = metricsManager.getProductMetrics()
+    showBalance.showProductMetrics(productMetrics)
+}
+
 const productListElement = document.getElementById('productList')
 productListElement.addEventListener('click', e => {
     if(isTheCheckButton(e.target)) {
@@ -39,6 +49,7 @@ productListElement.addEventListener('click', e => {
         products.checkAProduct(productId, productPrice)
         updateMoneyMetricsOfTheUser()
         updateMoneyMetrics()
+        updateProductMetrics()
     }
 })
 const isTheCheckButton = (element) => {
@@ -53,9 +64,8 @@ const getProductPrice = (productId) => {
     }
     return parseFloat(productPriceInput.value)
 }
-const metricsManager = new MetricsManager()
 const updateMoneyMetricsOfTheUser = () => {
-    const productList = products.getProductForMetrics()
+    const productList = products.getProductListForMetrics()
     metricsManager.updateAmountOfMoneyToPay(productList)
     metricsManager.changeSurplus()
 }
@@ -72,7 +82,6 @@ balanceForm.addEventListener('submit', (e) => {
     }
     updateMoneyMetrics()
 })
-const showBalance = new ShowBalance()
 const updateMoneyMetrics = () => {
     const userBalance = metricsManager.getTheUserBalance()
     showBalance.showMoneyMetrics(userBalance)

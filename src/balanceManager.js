@@ -6,9 +6,9 @@ export default class MetricsManager {
             surplus: 0
         }
         this.productMetrics = {
-            amountOfProducts,
-            amountOfProductsThatTheUserHas,
-            amountOfProductsThatTheUserDoesntHave
+            amountOfProducts: 0,
+            amountOfProductsThatTheUserHas: 0,
+            amountOfProductsThatTheUserDoesntHave: 0
         }
     }
     getTheUserBalance(){
