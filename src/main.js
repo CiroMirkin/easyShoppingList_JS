@@ -37,7 +37,7 @@ productListElement.addEventListener('click', e => {
         const productId = getProductId(e)
         const productPrice = getProductPrice(productId)
         products.checkAProduct(productId, productPrice)
-        updateProductBalance()
+        updateUserBalance()
         updateMoneyMetrics()
     }
 })
@@ -54,9 +54,9 @@ const getProductPrice = (productId) => {
     return parseFloat(productPriceInput.value)
 }
 const balanceManager = new BalanceManager()
-const updateProductBalance = () => {
+const updateUserBalance = () => {
     const productList = products.getProductForBalance()
-    balanceManager.updateProductsBalance(productList)
+    balanceManager.updateAmountOfMoneyToPay(productList)
     balanceManager.changeSurplus()
 }
 const balanceForm = document.getElementById('balanceForm')

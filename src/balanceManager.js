@@ -13,7 +13,7 @@ export default class BalanceManager {
         newUserBalance = parseFloat(newUserBalance)
         this.userBalance.availableMoney = this.changePriceFormat(newUserBalance)
     }
-    updateProductsBalance(productList) {
+    updateAmountOfMoneyToPay(productList) {
         let moneyToPay = 0
         productList.forEach(product => {
             moneyToPay = product.price + moneyToPay
