@@ -9,9 +9,9 @@ export default class BalanceManager {
     getTheUserBalance(){
         return {...this.userBalance}
     }
-    changeUserBalance(newUserBalance) {
-        newUserBalance = parseFloat(newUserBalance)
-        this.userBalance.availableMoney = this.changePriceFormat(newUserBalance)
+    changeUserAvaibleMoney(avaibleMoney) {
+        avaibleMoney = parseFloat(avaibleMoney)
+        this.userBalance.availableMoney = this.changePriceFormat(avaibleMoney)
     }
     updateAmountOfMoneyToPay(productList) {
         let moneyToPay = 0

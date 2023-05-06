@@ -64,11 +64,11 @@ balanceForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const balanceInput = document.getElementById('balanceInput')
     if(!balanceInput.value) {
-        balanceManager.changeUserBalance(0)
+        balanceManager.changeUserAvaibleMoney(0)
     }
     else {
         const balance = parseFloat(balanceInput.value)
-        balanceManager.changeUserBalance(balance)
+        balanceManager.changeUserAvaibleMoney(balance)
     }
     updateMoneyMetrics()
 })
