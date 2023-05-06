@@ -55,7 +55,7 @@ const getProductPrice = (productId) => {
 }
 const metricsManager = new MetricsManager()
 const updateMoneyMetricsOfTheUser = () => {
-    const productList = products.getProductForBalance()
+    const productList = products.getProductForMetrics()
     metricsManager.updateAmountOfMoneyToPay(productList)
     metricsManager.changeSurplus()
 }

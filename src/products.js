@@ -8,7 +8,7 @@ export default class Products {
     getProductListForShowIt() {
         return [...this.products]
     }
-    getProductForBalance() {
+    getProductForMetrics() {
         return [...this.products].map(product => ({ 
             price: product.price, 
             wasGetIt: product.wasGetIt
