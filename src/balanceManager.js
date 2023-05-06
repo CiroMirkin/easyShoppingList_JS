@@ -9,6 +9,10 @@ export default class BalanceManager {
     getTheUserBalance(){
         return {...this.userBalance}
     }
+    changeUserBalance(newUserBalance) {
+        newUserBalance = parseFloat(newUserBalance)
+        this.userBalance.availableMoney = this.changePriceFormat(newUserBalance)
+    }
     updateProductsBalance(productList) {
         let moneyToPay = 0
         productList.forEach(product => {

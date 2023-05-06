@@ -63,3 +63,16 @@ const updateMoneyMetrics = () => {
     const userBalance = balanceManager.getTheUserBalance()
     showBalance.showMoneyMetrics(userBalance)
 }
+
+const balanceForm = document.getElementById('balanceForm')
+balanceForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const balanceInput = document.getElementById('balanceInput')
+    if(!balanceInput.value) {
+        balanceManager.changeUserBalance(0)
+    }
+    else {
+        const balance = parseFloat(balanceInput.value)
+        balanceManager.changeUserBalance(balance)
+    } 
+})
