@@ -1,3 +1,4 @@
+import BalanceManager from './balanceManager.js'
 import Products from './products.js'
 import ShowProducts from './showProducts.js'
 
@@ -29,13 +30,14 @@ const clearTheFormValues = () => {
     newProductNameInput.value = ''
     newProductDescriptionInput.value = ''
 }
-
 const productListElement = document.getElementById('productList')
 productListElement.addEventListener('click', e => {
     if(isTheCheckButton(e.target)) {
         const productId = getProductId(e)
         const productPrice = getProductPrice(productId)
+        console.log(productPrice)
         products.checkAProduct(productId, productPrice)
+        updateBalance()
     }
 })
 const isTheCheckButton = (element) => {
@@ -45,5 +47,13 @@ const isTheCheckButton = (element) => {
 const getProductId = (e) => e.target.offsetParent.offsetParent.parentElement.id
 const getProductPrice = (productId) => {
     const productPriceInput = document.getElementById(`productPriceInput-${productId}`)
-    return Number(productPriceInput.value) || 0
+    if(!productPriceInput.value){
+        return 0
+    }
+    return parseFloat(productPriceInput.value)
+}
+const balanceManager = new BalanceManager()
+const updateBalance = () => {
+    const productList = products.getProductForBalance()
+    balanceManager.updateProductsBalance(productList)
 }
