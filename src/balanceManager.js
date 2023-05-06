@@ -11,6 +11,9 @@ export default class BalanceManager {
         productList.forEach(product => {
             moneyToPay = product.price + moneyToPay
         })
-        this.userBalance.moneyToPay = moneyToPay
+        this.userBalance.moneyToPay = this.changePriceFormat(moneyToPay)
+    }
+    changePriceFormat(price) {
+        return new Intl.NumberFormat('es', { style: 'currency', currency: 'ARG' }).format(price)
     }
 }
