@@ -20,9 +20,6 @@ export default class BalanceManager {
         })
         this.userBalance.moneyToPay = this.changePriceFormat(moneyToPay)
     }
-    changePriceFormat(price) {
-        return new Intl.NumberFormat('es', { style: 'currency', currency: 'ARG' }).format(price)
-    }
     changeSurplus(){
         const availableMoney = this.parseNumber(this.userBalance.availableMoney)
         const moneyToPay = this.parseNumber(this.userBalance.moneyToPay)
@@ -30,6 +27,9 @@ export default class BalanceManager {
             this.userBalance.surplus = this.changePriceFormat(availableMoney - moneyToPay)
         }
         
+    }
+    changePriceFormat(price) {
+        return new Intl.NumberFormat('es', { style: 'currency', currency: 'ARG' }).format(price)
     }
     parseNumber(string) {
         return parseFloat((string).toString().split(' ')[0].split(',').join('.'))
