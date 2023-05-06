@@ -54,4 +54,7 @@ export default class MetricsManager {
             amountOfProductsThatTheUserDoesntHave
         }
     }
+    getProductMetrics() {
+        return {...this.productMetrics}
+    }
 }
