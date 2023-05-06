@@ -5,6 +5,11 @@ export default class MetricsManager {
             moneyToPay: 0,
             surplus: 0
         }
+        this.productMetrics = {
+            amountOfProducts,
+            amountOfProductsThatTheUserHas,
+            amountOfProductsThatTheUserDoesntHave
+        }
     }
     getTheUserBalance(){
         return {...this.userBalance}
@@ -33,5 +38,20 @@ export default class MetricsManager {
     }
     parseNumber(string) {
         return parseFloat((string).toString().split(' ')[0].split(',').join('.'))
+    }
+    updateProductMetrics(productList) {
+        const amountOfProducts = productList.length
+        let amountOfProductsThatTheUserHas = 0
+        productList.forEach(product => {
+            if(product.wasGetIt) {
+                amountOfProductsThatTheUserHas += 1
+            }
+        })
+        const amountOfProductsThatTheUserDoesntHave = (amountOfProducts - amountOfProductsThatTheUserHas)
+        this.productMetrics = {
+            amountOfProducts,
+            amountOfProductsThatTheUserHas,
+            amountOfProductsThatTheUserDoesntHave
+        }
     }
 }
