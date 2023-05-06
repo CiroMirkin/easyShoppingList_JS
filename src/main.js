@@ -1,4 +1,4 @@
-import BalanceManager from './balanceManager.js'
+import MetricsManager from './balanceManager.js'
 import Products from './products.js'
 import ShowBalance from './showBalance.js'
 import ShowProducts from './showProducts.js'
@@ -37,7 +37,7 @@ productListElement.addEventListener('click', e => {
         const productId = getProductId(e)
         const productPrice = getProductPrice(productId)
         products.checkAProduct(productId, productPrice)
-        updateUserBalance()
+        updateMoneyMetricsOfTheUser()
         updateMoneyMetrics()
     }
 })
@@ -53,27 +53,27 @@ const getProductPrice = (productId) => {
     }
     return parseFloat(productPriceInput.value)
 }
-const balanceManager = new BalanceManager()
-const updateUserBalance = () => {
+const metricsManager = new MetricsManager()
+const updateMoneyMetricsOfTheUser = () => {
     const productList = products.getProductForBalance()
-    balanceManager.updateAmountOfMoneyToPay(productList)
-    balanceManager.changeSurplus()
+    metricsManager.updateAmountOfMoneyToPay(productList)
+    metricsManager.changeSurplus()
 }
 const balanceForm = document.getElementById('balanceForm')
 balanceForm.addEventListener('submit', (e) => {
     e.preventDefault()
     const balanceInput = document.getElementById('balanceInput')
     if(!balanceInput.value) {
-        balanceManager.changeUserAvaibleMoney(0)
+        metricsManager.changeUserAvaibleMoney(0)
     }
     else {
         const balance = parseFloat(balanceInput.value)
-        balanceManager.changeUserAvaibleMoney(balance)
+        metricsManager.changeUserAvaibleMoney(balance)
     }
     updateMoneyMetrics()
 })
 const showBalance = new ShowBalance()
 const updateMoneyMetrics = () => {
-    const userBalance = balanceManager.getTheUserBalance()
+    const userBalance = metricsManager.getTheUserBalance()
     showBalance.showMoneyMetrics(userBalance)
 }

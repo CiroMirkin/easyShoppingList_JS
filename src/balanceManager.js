@@ -1,4 +1,4 @@
-export default class BalanceManager {
+export default class MetricsManager {
     constructor() {
         this.userBalance = {
             availableMoney: 0,
