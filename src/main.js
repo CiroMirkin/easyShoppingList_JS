@@ -35,7 +35,6 @@ productListElement.addEventListener('click', e => {
     if(isTheCheckButton(e.target)) {
         const productId = getProductId(e)
         const productPrice = getProductPrice(productId)
-        console.log(productPrice)
         products.checkAProduct(productId, productPrice)
         updateBalance()
     }

@@ -9,7 +9,6 @@ export default class Products {
         return [...this.products]
     }
     getProductForBalance() {
-        console.table(this.products)
         return [...this.products].map(product => ({ 
             price: product.price, 
             wasGetIt: product.wasGetIt
