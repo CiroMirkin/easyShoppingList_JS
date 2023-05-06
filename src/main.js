@@ -57,6 +57,7 @@ const balanceManager = new BalanceManager()
 const updateProductBalance = () => {
     const productList = products.getProductForBalance()
     balanceManager.updateProductsBalance(productList)
+    balanceManager.changeSurplus()
 }
 const balanceForm = document.getElementById('balanceForm')
 balanceForm.addEventListener('submit', (e) => {
