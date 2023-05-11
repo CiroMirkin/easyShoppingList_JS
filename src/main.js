@@ -6,10 +6,17 @@ import ShowProducts from './showProducts.js'
 const products = new Products()
 const showProducts = new ShowProducts()
 
+const metricsManager = new MetricsManager()
+const showBalance = new ShowBalance()
+const updateProductMetrics = () => {
+    const productList = products.getProductListForMetrics()
+    metricsManager.updateProductMetrics(productList)
+    const productMetrics = metricsManager.getProductMetrics()
+    showBalance.showProductMetrics(productMetrics)
+}
 const getNewProductID = () => {
     return Date.now().toString(35) + Math.random().toString(36).slice(2)
 }
-
 const addProductForm = document.getElementById('addProductForm')
 addProductForm.addEventListener('submit', e => {
     e.preventDefault()
@@ -32,14 +39,6 @@ const clearTheFormValues = () => {
     newProductNameInput.value = ''
     newProductDescriptionInput.value = ''
 }
-const metricsManager = new MetricsManager()
-const showBalance = new ShowBalance()
-const updateProductMetrics = () => {
-    const productList = products.getProductListForMetrics()
-    metricsManager.updateProductMetrics(productList)
-    const productMetrics = metricsManager.getProductMetrics()
-    showBalance.showProductMetrics(productMetrics)
-}
 
 const productListElement = document.getElementById('productList')
 productListElement.addEventListener('click', e => {
@@ -56,7 +55,6 @@ const isTheCheckButton = (element) => {
     const icon = '<i class="bi bi-check-lg"></i>'
     return (element.outerHTML).trim() == icon || (element.innerHTML).trim() == icon
 }
-const getProductId = (e) => e.target.offsetParent.offsetParent.parentElement.id
 const getProductPrice = (productId) => {
     const productPriceInput = document.getElementById(`productPriceInput-${productId}`)
     if(!productPriceInput.value){
@@ -64,6 +62,8 @@ const getProductPrice = (productId) => {
     }
     return parseFloat(productPriceInput.value)
 }
+
+const getProductId = (e) => e.target.offsetParent.offsetParent.parentElement.id
 const updateMoneyMetricsOfTheUser = () => {
     const productList = products.getProductListForMetrics()
     metricsManager.updateAmountOfMoneyToPay(productList)
