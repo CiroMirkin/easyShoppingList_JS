@@ -24,8 +24,8 @@ export default class ShowProducts {
                         </li>
                         <li class="collapse list-group-item" id="car">
                             <div class="d-flex justify-content-center">
-                                <button class="btn btn-primary mx-1"><i class="bi bi-pencil"></i></button>
-                                <button class="btn btn-danger mx-1"><i class="bi bi-trash"></i></button>
+                                <button class="btn btn-primary mx-1" buttonType="edit"><i class="bi bi-pencil"></i></button>
+                                <button class="btn btn-danger mx-1" buttonType="delete"><i class="bi bi-trash"></i></button>
                             </div>
                         </li>
                     </ul>

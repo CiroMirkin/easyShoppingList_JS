@@ -5,6 +5,9 @@ export default class Products {
     addProduct(newProduct) {
         this.products.push(newProduct)
     }
+    deleteThisProduct(productId) {
+        this.products = this.products.filter(product => product.id !== productId)
+    }
     getProductListForShowIt() {
         return [...this.products]
     }

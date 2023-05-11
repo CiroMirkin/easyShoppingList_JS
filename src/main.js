@@ -43,9 +43,17 @@ const clearTheFormValues = () => {
 const productListElement = document.getElementById('productList')
 productListElement.addEventListener('click', e => {
     if(isTheCheckButton(e.target)) {
-        const productId = getProductId(e)
+        const productId = getProductIdForMarkAProduct(e)
         const productPrice = getProductPrice(productId)
         products.checkAProduct(productId, productPrice)
+        updateMoneyMetricsOfTheUser()
+        updateMoneyMetrics()
+        updateProductMetrics()
+    }
+    else if (isTheDeleteButton(e.target)) {
+        const productId = getProductIdForDeleteOrEditAProduct(e)
+        products.deleteThisProduct(productId)
+        showProducts.showProductList(products.getProductListForShowIt())
         updateMoneyMetricsOfTheUser()
         updateMoneyMetrics()
         updateProductMetrics()
@@ -62,8 +70,13 @@ const getProductPrice = (productId) => {
     }
     return parseFloat(productPriceInput.value)
 }
-
-const getProductId = (e) => e.target.offsetParent.offsetParent.parentElement.id
+const isTheDeleteButton = (element) => {
+    const whenTheUserClickedOnTheButtonIcon = element.parentElement
+    const buttonType = whenTheUserClickedOnTheButtonIcon.attributes.buttonType.nodeValue
+    return buttonType == 'delete'
+}
+const getProductIdForMarkAProduct = (e) => e.target.offsetParent.offsetParent.parentElement.id
+const getProductIdForDeleteOrEditAProduct = (e) => e.target.offsetParent.offsetParent.parentElement.id
 const updateMoneyMetricsOfTheUser = () => {
     const productList = products.getProductListForMetrics()
     metricsManager.updateAmountOfMoneyToPay(productList)
