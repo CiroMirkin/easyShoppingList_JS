@@ -51,7 +51,7 @@ productListElement.addEventListener('click', e => {
         updateProductMetrics()
     }
     else if (isTheDeleteButton(e.target)) {
-        const productId = getProductIdForDeleteOrEditAProduct(e)
+        const productId = getProductIdForDeleteAProduct(e)
         products.deleteThisProduct(productId)
         showProducts.showProductList(products.getProductListForShowIt())
         updateMoneyMetricsOfTheUser()
@@ -76,7 +76,7 @@ const isTheDeleteButton = (element) => {
     return buttonType == 'delete'
 }
 const getProductIdForMarkAProduct = (e) => e.target.offsetParent.offsetParent.parentElement.id
-const getProductIdForDeleteOrEditAProduct = (e) => e.target.offsetParent.offsetParent.parentElement.id
+const getProductIdForDeleteAProduct = (e) => e.target.offsetParent.offsetParent.parentElement.id
 const updateMoneyMetricsOfTheUser = () => {
     const productList = products.getProductListForMetrics()
     metricsManager.updateAmountOfMoneyToPay(productList)
