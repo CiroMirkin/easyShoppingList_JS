@@ -93,6 +93,7 @@ balanceForm.addEventListener('submit', (e) => {
         const balance = parseFloat(balanceInput.value)
         metricsManager.changeUserAvaibleMoney(balance)
     }
+    balanceInput.value = ''
     updateMoneyMetrics()
 })
 const updateMoneyMetrics = () => {
