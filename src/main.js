@@ -65,10 +65,12 @@ const isTheCheckButton = (element) => {
 }
 const getProductPrice = (productId) => {
     const productPriceInput = document.getElementById(`productPriceInput-${productId}`)
-    if(!productPriceInput.value){
+    const productPrice = productPriceInput.value
+    productPriceInput.value = ''
+    if(!productPrice){
         return 0
     }
-    return parseFloat(productPriceInput.value)
+    return parseFloat(productPrice)
 }
 const isTheDeleteButton = (element) => {
     const whenTheUserClickedOnTheButtonIcon = element.parentElement
