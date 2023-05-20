@@ -2,7 +2,7 @@ export default class ShowProducts {
     constructor() {}
     showProductList(productList) {
         const productHTMLList = [...productList].map(product => 
-            `<li id="${product.id}" class="col">
+            `<li id="${product.id}" class="col m-1">
                 <div class="card w-100">
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
