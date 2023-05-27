@@ -67,16 +67,18 @@ const getProductPrice = (productId) => {
     const productPriceInput = document.getElementById(`productPriceInput-${productId}`)
     const productPrice = productPriceInput.value
     productPriceInput.value = ''
-    console.log(productPrice)
-    console.log(parse)
     return formatPrice(productPrice)
 }
 const formatPrice = (productPrice) => {
-    if(!productPrice){
-        return 0
+    const isNotString = typeof productPrice !== 'string'
+    const isBlank = !productPrice.trim()
+    const isNotNumber = isNaN(parseFloat(productPrice))
+  
+    if (isNotString || isBlank || isNotNumber) {
+      return 0
     }
     return parseFloat(productPrice)
-} 
+}  
 const isTheDeleteButton = (element) => {
     const whenTheUserClickedOnTheButtonIcon = element.parentElement
     const buttonType = whenTheUserClickedOnTheButtonIcon.attributes.buttonType.nodeValue
